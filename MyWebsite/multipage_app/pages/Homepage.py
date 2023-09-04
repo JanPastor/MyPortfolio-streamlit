@@ -4,11 +4,6 @@ from streamlit_lottie import st_lottie
 import json
 from PIL import Image
 
-# def show():
-#     st.write("##")
-    # st.title("Welcome to my Homepage")
-    # st.write("This is the content of the homepage.")
-    # Add more Streamlit code to build your homepage
 
 # Function to load url animations
 def load_lottieurl(url):
@@ -23,6 +18,9 @@ def load_lottie_file(path: str):
         lottie_data = json.load(f)
     return lottie_data
 
+# Using a function to load the lottie assets when show() function is called
+def load_assets():
+    return {name: load_lottie_file(path) for name, path in lottie_files.items()}
 
 # Use Local CSS 
 # def local_css(file_name):
@@ -31,17 +29,18 @@ def load_lottie_file(path: str):
 
 # local_css("C:\\Users\\pasto\\OneDrive\\Desktop\\Summer_Code_2023\\MyWebsite\\style\\style.css") # path to local CSS file
 
-# Loading assets
-lottie_data = load_lottieurl('https://lottie.host/1ed77d0f-3c2a-4305-91e3-d9b605a96194/g39ZopMAnK.json')
-lottie_engineer = load_lottie_file("C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\engineer-holding-lightning.json")
-lottie_volt_meter = load_lottie_file("C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\volt-mater.json")
-lottie_coding = load_lottie_file("C:\\Users\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\coding.json")
-lottie_soft_engineer = load_lottie_file("C:\\Users\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\engineer-employee-have-bright-idea.json")
-lottie_reading = load_lottie_file("C:\\Users\\pasto\Downloads\Summer_Code_2023-main\MyWebsite\\animations\\girl-reading-book-at-home.json")
-lottie_cooking = load_lottie_file("C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\cooking-your-food.json")
-lottie_gym = load_lottie_file("C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\gym_exercise.json")
-lottie_music = load_lottie_file("C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\drum.json")
 
+# Loading json assets using a dictionary
+lottie_files = {
+    "engineer": "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\engineer-holding-lightning.json",
+    "volt_meter": "C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\volt-mater.json",
+    "coding": "C:\\Users\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\coding.json",
+    "soft_engineer": "C:\\Users\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\engineer-employee-have-bright-idea.json",
+    "reading": "C:\\Users\\pasto\Downloads\Summer_Code_2023-main\MyWebsite\\animations\\girl-reading-book-at-home.json",
+    "cooking": "C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\cooking-your-food.json",
+    "gym": "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\gym_exercise.json",
+    "music": "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\drum.json"
+}
 
 st.set_page_config(
     page_title= "Jan's Webpage",
@@ -50,6 +49,7 @@ st.set_page_config(
 )
 
 def show():
+    loaded_lotties = load_assets()
     st.title("🖥️ Welcome to my webpage! 🖱️")
 # st.sidebar.success("Select a page below 👇")
 
@@ -71,22 +71,26 @@ def show():
                     To become an Electrical and Computer Engineer!
                          💻 
                     ''')
+            st.write('''
+                    Why: At a young age, electricity has always fascinated me. I seek to understand more about electrical theory
+                and electronics and maybe invent a few gizmos and gadgets before I croak. :skull:
+                    ''')
             # st.write('##')
         with right_column:
-            st.lottie(lottie_engineer, height = 250, width = 250, key = "engineer")
+            st.lottie(loaded_lotties["engineer"], height = 250, width = 250, key = "engineer")
             # st.write('##')
         with right2_column:
-            st.lottie(lottie_soft_engineer, height = 250, width = 250, key ='sfwre_eng')
+            st.lottie(loaded_lotties["soft_engineer"], height = 250, width = 250, key ='sfwre_eng')
 
     
     with st.container():
         st.divider()
-        st.subheader("Skills: 🪚	🪛🪠🧰")
+        st.subheader("Skills: 🪚🪛🪠🧰")
         st.write('##')
 
         left_column, right_column = st.columns(2, gap ='small')
         with left_column:
-            st.lottie(lottie_coding, height = 250, width = 250, key = "coding")
+            st.lottie(loaded_lotties["coding"], height = 250, width = 250, key = "coding")
         with right_column:
             st.markdown('''
                     <div style= 'font-family: sans-serif; font-size: 20px;'>
@@ -110,7 +114,7 @@ def show():
                         </div>''',unsafe_allow_html=True)
     
         with left_column:
-            st.lottie(lottie_volt_meter, height = 250, width = 250, key = 'electrical')
+            st.lottie(loaded_lotties["volt_meter"], height = 250, width = 250, key = 'electrical')
     
     with st.container():
         st.divider()
@@ -119,9 +123,9 @@ def show():
 
         col1, col2, col3 = st.columns(3, gap='small')
         with col1:
-            st.lottie(lottie_reading, height = 150, width = 150, key = 'book')
+            st.lottie(loaded_lotties["reading"], height = 150, width = 150, key = 'book')
         with col2:
-            st.lottie(lottie_cooking, height = 150, width = 150, key = 'cook')
+            st.lottie(loaded_lotties["cooking"], height = 150, width = 150, key = 'cook')
         with col3:
             st.write('##')
             st.markdown('''
@@ -131,12 +135,12 @@ def show():
     with st.container():
         left_column, right_column, right2_column = st.columns(3, gap = 'small')
         with left_column:
-            st.lottie(lottie_gym, height = 200, width = 200, key = 'exercise')
+            st.lottie(loaded_lotties["gym"], height = 200, width = 200, key = 'exercise')
         with right_column:
-            st.lottie(lottie_music,height = 150, width = 150, key = 'drums')
+            st.lottie(loaded_lotties["music"],height = 150, width = 150, key = 'drums')
         with right2_column:
             st.write('##')
             st.markdown('''
                     <div style= 'font-family: sans-serif; font-size: 20px;'>
-                        Physically active and I enjoy creating random melodies with drums!
+                        Living a physically active lifestyle and occassionaly playing the drums.
                         </div>''',unsafe_allow_html=True)

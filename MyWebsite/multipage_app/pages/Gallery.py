@@ -1,36 +1,39 @@
 import streamlit as st
 from PIL import Image
+import os
 
-# Loading the assets
-image_col1 = Image.open("C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\images\\MATE_ROV.png")
+# Function to load images from a folder into a dictionary
+def load_images(image_folder):
+    images = {}
+    for filename in os.listdir(image_folder):
+        if filename.endswith(".png") or filename.endswith(".jpg"):
+            img_path = os.path.join(image_folder, filename)
+            images[filename] = Image.open(img_path)
+    return images
 
+# Load images from the folder into a dictionary
+image_folder_path = "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\images"
+images = load_images(image_folder_path)
 
 def show():
-# Page title
+    # Page title
     st.title("Gallery 🖼️")
     st.write("Pictures or it didn't happen.")
-
-# Pictures container
+    
+    # Pictures container
     with st.container():
-         st.header("Pictures 📷")
+        st.header("Pictures for MATE ROV Competition | Pasadena City College| Team: Lancer Lumineers 📷")
+        st.subheader("|Lead Software Engineer| Electrical Engineer")
+        st.divider()
         
-    # Create columns
-    col1, col2, col3 = st.columns(3)
-        
-        # Display images in columns
-    with col1:
-         st.image(image_col1, caption= "Image 1", use_column_width= True)
-    with col2: 
-         st.image(image_col1, caption= "Image 1", use_column_width= True)
+        # Create columns
+        cols = st.columns(len(images))
 
-        
+        # Display images from dictionary in columns
+        for i, (image_name, image) in enumerate(images.items()):
+            cols[i].image(image, caption=image_name, use_column_width=True)
 
-        # col2.image("C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\images\\jan_rocks.jpg", caption="Image 2", use_column_width=True)
-        # col3.image("C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\images\\Me_soldering_1.jpg", caption="Image 3", use_column_width=True)
 
-        # st.image("C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\images\\Me_soldering_1.jpg", caption="Image 3", use_column_width= True)
-    
-    
     
     # # Videos container
     # with st.container():
