@@ -49,6 +49,15 @@ st.set_page_config(
 )
 
 def show():
+
+    st.markdown("""
+    <style>
+        #MainMenu {visibility: visible;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+    </style>
+    """, unsafe_allow_html=True)
+
     loaded_lotties = load_assets()
     st.title("🖥️ Welcome to my webpage! 🖱️")
 # st.sidebar.success("Select a page below 👇")
@@ -94,12 +103,13 @@ def show():
         with right_column:
             st.markdown('''
                     <div style= 'font-family: sans-serif; font-size: 20px;'>
-                        Programming: Python, C++, MATLAB, CSS, HTML
+                        Programming: Python, C++, MATLAB, CSS, HTML.
                         </div>''',unsafe_allow_html=True)
             st.write('##')
             st.markdown('''
                     <div style= 'font-family: sans-serif; font-size: 20px;'>
-                        Software Tools: Jupyter Notebook, Arduino, SOLIDWORKS, PCB EAGLE, Google Sheets, MS Word, 
+                        Software Tools: Visual Studio Code, Visual Studio 2022, 
+                        Jupyter Notebook, Arduino, SOLIDWORKS, PCB EAGLE, Google Sheets, MS Word, 
                         Google Powerpoint.
                         </div>''',unsafe_allow_html=True)
     st.write('##')
