@@ -4,6 +4,11 @@ from streamlit_lottie import st_lottie
 import json
 from PIL import Image
 
+st.set_page_config(
+    page_title= "Jan's Webpage",
+    page_icon= "⚡",
+    layout= 'centered'
+)
 
 # Function to load url animations
 def load_lottieurl(url):
@@ -42,19 +47,13 @@ lottie_files = {
     "music": "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\drum.json"
 }
 
-st.set_page_config(
-    page_title= "Jan's Webpage",
-    page_icon= "⚡",
-    layout= 'centered'
-)
-
 def show():
 
     st.markdown("""
     <style>
         #MainMenu {visibility: visible;}
         footer {visibility: hidden;}
-        header {visibility: hidden;}
+        header {visibility: visible;}
     </style>
     """, unsafe_allow_html=True)
 

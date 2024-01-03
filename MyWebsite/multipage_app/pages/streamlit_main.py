@@ -5,6 +5,13 @@ import Experience
 import Gallery  
 import Contact  
 
+
+# st.set_page_config(
+#     page_title= "Jan's Webpage",
+#     page_icon= "⚡",
+#     layout= 'centered'
+# )
+
 # Sidebar with Emojis
 page = st.sidebar.selectbox(
     ":wave: Over here! Select pages below. :point_down:  ",

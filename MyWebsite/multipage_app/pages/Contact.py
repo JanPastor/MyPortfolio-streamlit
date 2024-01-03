@@ -7,13 +7,14 @@ def local_css(file_name):
 
 local_css("C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\Summer_Code_2023-main\\MyWebsite\\style\\style.css") # path to local CSS file
 
+
 def show():
     
     st.markdown("""
     <style>
         #MainMenu {visibility: visible;}
         footer {visibility: hidden;}
-        header {visibility: hidden;}
+        header {visibility: visible;}
     </style>
     """, unsafe_allow_html=True)
 

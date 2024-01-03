@@ -1,10 +1,17 @@
+
 import streamlit as st
+
+# st.set_page_config(
+#     page_title= "Jan's Webpage",
+#     page_icon= "⚡",
+#     layout= 'centered'
+# )
 
 def show():
 
     st.markdown("""
     <style>
-        #MainMenu {visibility: hidden;}
+        #MainMenu {visibility: visible;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
     </style>

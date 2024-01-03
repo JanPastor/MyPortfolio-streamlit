@@ -109,7 +109,7 @@ def show():
 
     st.markdown("""
     <style>
-        #MainMenu {visibility: hidden;}
+        #MainMenu {visibility: visible;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
     </style>
