@@ -160,7 +160,7 @@ def show():
             # cols[i].markdown(f'<div class="centered-img">![{caption}]({image})</div>', unsafe_allow_html=True)
 
             cols[i].image(image, caption=caption, use_column_width=True)  # Set caption to 'name' if you want captions
-
+    # New container for image data set 3
     with st.container():
 
         # Create columns
@@ -172,7 +172,7 @@ def show():
 
             cols[i].image(image, caption=caption, use_column_width=True)  # Set caption to 'name' if you want captions
 
-    with st.container():
+    with st.container(): # New container for videos about MATE ROV Competition
          st.subheader("Videos 🎥: Lancer Lumineers | MATE ROV Competition 2023")
 
          #Create the video columns
@@ -182,7 +182,7 @@ def show():
              video_cols[i].video(video_path)
              video_cols[i].write(caption)
         
-    with st.container():
+    with st.container(): # New container for pictures about MATE ROV FLOATS Summer Camp 2023
         st.header("Pictures 📷 for MATE ROV FLOATS Summer Workshop 2023|Seattle, WA")
         st.subheader(" Jan Pastor |Data Analysis Cohort Member| ")
         st.write("(Aug. 2023)")
@@ -201,7 +201,7 @@ def show():
             
             cols[i].image(image, caption=caption, use_column_width=True)  # Set caption to 'name' if you want captions
 
-    with st.container():
+    with st.container(): # New container for videos about MATE ROV FLOATS
          st.subheader("Videos 🎥: MATE FLOATS Workshop| Seattle, WA")
 
          #Create the video columns
