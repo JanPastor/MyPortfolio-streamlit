@@ -21,7 +21,8 @@ def load_specific_images(image_data):
 # Function to load specific videos into a dictionary
 def load_specific_videos(video_data):
     for name, (url, caption) in video_data.items():
-        st.video(url, caption=caption, use_column_width=True)
+        st.video(url)
+        st.write(caption)
 
 
 # Dictionary of image paths

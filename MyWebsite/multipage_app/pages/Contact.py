@@ -5,7 +5,7 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html= True)
 
-local_css("C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\Summer_Code_2023-main\\MyWebsite\\style\\style.css") # path to local CSS file
+local_css("MyWebsite/style/style.css") # path to local CSS file
 
 
 def show():

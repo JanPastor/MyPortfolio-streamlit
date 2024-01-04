@@ -14,18 +14,19 @@ st.set_page_config(
 def load_lottieurl(url):
     req = requests.get(url)
     if req.status_code != 200:
+        print(f"Failed to load Lottie URL: {url}")
         return None
     return req.json()
 
 # Function to load local json files (lottie json files)
-def load_lottie_file(path: str):
-    with open(path, "r") as f:
-        lottie_data = json.load(f)
-    return lottie_data
+# def load_lottie_file(path: str):
+#     with open(path, "r") as f:
+#         lottie_data = json.load(f)
+#     return lottie_data
 
 # Using a function to load the lottie assets when show() function is called
 def load_assets():
-    return {name: load_lottie_file(path) for name, path in lottie_files.items()}
+    return {name: load_lottieurl(url) for name, url in lottie_files.items()}
 
 # Use Local CSS 
 # def local_css(file_name):
@@ -36,16 +37,29 @@ def load_assets():
 
 
 # Loading json assets using a dictionary
+# lottie_files = {
+#     "engineer": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/engineer-holding-lightning.json",
+#     "volt_meter": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/volt-mater.json",
+#     "coding": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/coding.json",
+#     "soft_engineer": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/engineer-employee-have-bright-idea.json",
+#     "reading": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/girl-reading-book-at-home.json",
+#     "cooking": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/cooking-your-food.json",
+#     "gym": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/gym_exercise.json",
+#     "music": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/drum.json"
+# }
+
+
 lottie_files = {
-    "engineer": "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\engineer-holding-lightning.json",
-    "volt_meter": "C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\volt-mater.json",
-    "coding": "C:\\Users\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\coding.json",
-    "soft_engineer": "C:\\Users\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\engineer-employee-have-bright-idea.json",
-    "reading": "C:\\Users\\pasto\Downloads\Summer_Code_2023-main\MyWebsite\\animations\\girl-reading-book-at-home.json",
-    "cooking": "C:\\Users\\pasto\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\cooking-your-food.json",
-    "gym": "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\gym_exercise.json",
-    "music": "C:\\Users\\pasto\\Downloads\\Summer_Code_2023-main\\MyWebsite\\animations\\drum.json"
+    "engineer": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/engineer-holding-lightning.json",
+    "volt_meter": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/volt-mater.json",
+    "coding": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/coding.json",
+    "soft_engineer": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/engineer-employee-have-bright-idea.json",
+    "reading": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/girl-reading-book-at-home.json",
+    "cooking": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/cooking-your-food.json",
+    "gym": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/gym_exercise.json",
+    "music": "https://raw.githubusercontent.com/JanPastor/Summer_Code_2023-main/main/MyWebsite/animations/drum.json"
 }
+
 
 def show():
 
@@ -58,6 +72,10 @@ def show():
     """, unsafe_allow_html=True)
 
     loaded_lotties = load_assets()
+    # print(loaded_lotties) # Check the contents of the loaded lotties dictionary
+
+
+    
     st.title("🖥️ Welcome to my webpage! 🖱️")
 # st.sidebar.success("Select a page below 👇")
 
@@ -85,7 +103,10 @@ def show():
                     ''')
             # st.write('##')
         with right_column:
-            st.lottie(loaded_lotties["engineer"], height = 250, width = 250, key = "engineer")
+            if loaded_lotties["engineer"] is not None:
+                st.lottie(loaded_lotties["engineer"], height = 250, width = 250, key = "engineer")
+            else:
+                st.error("Animation could not be loaded :( ")
             # st.write('##')
         with right2_column:
             st.lottie(loaded_lotties["soft_engineer"], height = 250, width = 250, key ='sfwre_eng')
