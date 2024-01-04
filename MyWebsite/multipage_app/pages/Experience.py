@@ -30,7 +30,7 @@ def show():
 
         - Designed, implemented, and managed all software related aspects of the ROV 
         - Implemented code to operate a gripper mechanism for the ROV (servo-operated claw), designed intuitive GUI,
-           for Pilot, wrote code to operate dual camera system to help Pilot to navigate and maneuver the ROV underwater
+        for Pilot, wrote code to operate dual camera system to help Pilot to navigate and maneuver the ROV underwater
         - Employed custom computer vision algorithms and pre-trained AI models to enhance ROV capabilities
         - Tested and debugged ROV system code to eliminate fatal errors and crashes during ROV operation
         - Soldered and assembled all electronic components and systems for the ROV

@@ -12,17 +12,24 @@ import os
 #         images[name] = (img,caption)
 #     return images
 
-# ChatGPT suggested function to load specific images into a dictionary
+
+
 def load_specific_images(image_data):
+    images = {}
     for name, (url, caption) in image_data.items():
         st.image(url, caption=caption, use_column_width=True)
+        images[name] = (url, caption)
+    return images
 
 
 # Function to load specific videos into a dictionary
 def load_specific_videos(video_data):
+    videos = {}
     for name, (url, caption) in video_data.items():
         st.video(url)
         st.write(caption)
+        videos[name] = (url, caption)
+    return videos
 
 
 # Dictionary of image paths
@@ -84,19 +91,19 @@ image_data_5 = { # Pictures from MATE ROV FLOATS Summer Camp 2023 PART II
 
 # Dictionary of video paths and captions
 video_data = {
-    "Video_1": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pool_practice_0.mp4", "Grabbing the PVC pipe attempt 1"),
-    "Video_2": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pool_practice_1.mp4", "Attempt successful 😁"),
-    "Video_3": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pool_practice_2.mp4","Grabbing the pyramid"),
-    "Competition_video": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/competition.mp4","MATE ROV Competition Mission Tasks 😬")
-    # Add more paths and captions here
+    "Video_1": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pool_practice_0.mp4?raw=true", "Grabbing the PVC pipe attempt 1"),
+    "Video_2": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pool_practice_1.mp4?raw=true", "Attempt successful 😁"),
+    "Video_3": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pool_practice_2.mp4?raw=true","Grabbing the pyramid"),
+    "Competition_video": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/competition.mp4?raw=true","MATE ROV Competition Mission Tasks 😬")
+    # Add more urls and captions here
 }
 
 video_data_1 = {
-    "Video_1": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/Entering_docks_1.mp4", "Entering the docks 🚢"),
-    "Video_2": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/Entering_dockds_2.mp4", "Docks part 2 🚢"),
-    "Video_3": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/aft_panorama.mp4", "Water trails 🌊"),
-    "Video_4": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pranking_Jasmine.mp4", "A little mischief 😆"),
-    "Video_5": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/phytoplankton.mp4", "Plankton 🦠")
+    "Video_1": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/Entering_docks_1.mp4?raw=true", "Entering the docks 🚢"),
+    "Video_2": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/Entering_dockds_2.mp4?raw=true", "Docks part 2 🚢"),
+    "Video_3": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/aft_panorama.mp4?raw=true", "Water trails 🌊"),
+    "Video_4": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/pranking_Jasmine.mp4?raw=true", "A little mischief 😆"),
+    "Video_5": ("https://github.com/JanPastor/my-streamlit-staticmedia/blob/main/MATE_Float_Vids/phytoplankton.mp4?raw=true", "Plankton 🦠")
 }
 
 # Load specific videos
@@ -179,14 +186,14 @@ def show():
             cols[i].image(image, caption=caption, use_column_width=True)  # Set caption to 'name' if you want captions
 
     with st.container(): # New container for videos about MATE ROV Competition
-         st.subheader("Videos 🎥: Lancer Lumineers | MATE ROV Competition 2023")
+        st.subheader("Videos 🎥: Lancer Lumineers | MATE ROV Competition 2023")
 
-         #Create the video columns
-         video_cols = st.columns(len(videos))
-         # Display specific videos from dictionary in columns
-         for i, (name, (video_path, caption)) in enumerate(videos.items()):
-             video_cols[i].video(video_path)
-             video_cols[i].write(caption)
+        #Create the video columns
+        video_cols = st.columns(len(videos))
+        # Display specific videos from dictionary in columns
+        for i, (name, (video_path, caption)) in enumerate(videos.items()):
+            video_cols[i].video(video_path)
+            video_cols[i].write(caption)
         
     with st.container(): # New container for pictures about MATE ROV FLOATS Summer Camp 2023
         st.header("Pictures 📷 for MATE ROV FLOATS Summer Workshop 2023|Seattle, WA")
@@ -200,7 +207,7 @@ def show():
             cols[i].image(image, caption=caption, use_column_width=True)  # Set caption to 'name' if you want captions
 
     with st.container():
- 
+
         # Creating columns
         cols = st.columns(len(images_5))
         for i, (name, (image, caption)) in enumerate(images_5.items()):
@@ -208,11 +215,11 @@ def show():
             cols[i].image(image, caption=caption, use_column_width=True)  # Set caption to 'name' if you want captions
 
     with st.container(): # New container for videos about MATE ROV FLOATS
-         st.subheader("Videos 🎥: MATE FLOATS Workshop| Seattle, WA")
+        st.subheader("Videos 🎥: MATE FLOATS Workshop| Seattle, WA")
 
-         #Create the video columns
-         video_cols = st.columns(len(videos_1))
-         # Display specific videos from dictionary in columns
-         for i, (name, (video_path, caption)) in enumerate(videos_1.items()):
-             video_cols[i].video(video_path)
-             video_cols[i].write(caption)
+        #Create the video columns
+        video_cols = st.columns(len(videos_1))
+        # Display specific videos from dictionary in columns
+        for i, (name, (video_path, caption)) in enumerate(videos_1.items()):
+            video_cols[i].video(video_path)
+            video_cols[i].write(caption)

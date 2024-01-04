@@ -18,12 +18,6 @@ def load_lottieurl(url):
         return None
     return req.json()
 
-# Function to load local json files (lottie json files)
-# def load_lottie_file(path: str):
-#     with open(path, "r") as f:
-#         lottie_data = json.load(f)
-#     return lottie_data
-
 # Using a function to load the lottie assets when show() function is called
 def load_assets():
     return {name: load_lottieurl(url) for name, url in lottie_files.items()}
@@ -36,17 +30,6 @@ def load_assets():
 # local_css("C:\\Users\\pasto\\OneDrive\\Desktop\\Summer_Code_2023\\MyWebsite\\style\\style.css") # path to local CSS file
 
 
-# Loading json assets using a dictionary
-# lottie_files = {
-#     "engineer": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/engineer-holding-lightning.json",
-#     "volt_meter": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/volt-mater.json",
-#     "coding": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/coding.json",
-#     "soft_engineer": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/engineer-employee-have-bright-idea.json",
-#     "reading": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/girl-reading-book-at-home.json",
-#     "cooking": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/cooking-your-food.json",
-#     "gym": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/gym_exercise.json",
-#     "music": "https://raw.github.com/JanPastor/Summer_Code_2023-main/blob/main/MyWebsite/animations/drum.json"
-# }
 
 
 lottie_files = {
@@ -94,7 +77,7 @@ def show():
             # st.divider()
             # st.write('##')
             st.write(''' ⚡
-                    To become an Electrical and Computer Engineer!
+                    To become an Electrical ⚡ and Computer Engineer!
                          💻 
                     ''')
             st.write('''
@@ -111,7 +94,18 @@ def show():
         with right2_column:
             st.lottie(loaded_lotties["soft_engineer"], height = 250, width = 250, key ='sfwre_eng')
 
-    
+    with st.container():
+        st.title("A little about me: :smile:")
+        st.write('##')
+        st.write('''
+                I am an aspiring Electrical and Computer Engineer from California, USA. I am currently a second year transfer student at
+                the Cal Poly Pomona and I am currently pursuing dual B.S. degrees in Electrical Engineering and Computer Engineering. I am currently
+                looking for internships and research opportunities for the summer of 2024/2025. I am also looking for
+                opportunities to collaborate with other engineers and programmers on projects. I am also looking for
+                opportunities to work on projects that will help me develop my skills as an engineer and programmer.
+                ''')
+        st.write('##')
+
     with st.container():
         st.divider()
         st.subheader("Skills: 🪚🪛🪠🧰")

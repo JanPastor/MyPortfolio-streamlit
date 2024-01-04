@@ -6,17 +6,18 @@ import Gallery
 import Contact  
 
 
-# st.set_page_config(
-#     page_title= "Jan's Webpage",
-#     page_icon= "⚡",
-#     layout= 'centered'
-# )
+st.set_page_config(
+    page_title= "Jan's Webpage",
+    page_icon= "⚡",
+    layout= 'centered'
+)
 
 # Sidebar with Emojis
 page = st.sidebar.selectbox(
     ":wave: Over here! Select pages below. :point_down:  ",
     ("About Me 🏠","Experience 🧑‍🏭", "Gallery 🖼️", "Contact 📞")
 )
+st.sidebar.markdown("Note: If the pages don't load or look strange, try refreshing the page. :arrows_counterclockwise:")
 
 # Main Content
 if page == "About Me 🏠":
