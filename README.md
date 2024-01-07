@@ -1,10 +1,8 @@
-# Summer_Code_2023
-The purpose of this summer code is for me, Jan Pastor, to learn as much coding as possible before summer vacation 
-is over. To that end, I've set up a git hub repository for all my summer coding related projects and learning
-activities. This is a private repository and can be viewed only by me.
+# streamlit Website
+The purpose of this repo is to try my hand at small scale web development using Streamlit to ease me into the process of learning HTML, CSS, and Python.
+1. Note I already have an intermediate understanding of Python, C++, but I lack in depth knowledge of HTML, CSS, and Javascript.
+2. Plans for the future: To learn Javascript and C++ as well as full stack web development.
 
-Futher plans with Summer_Code_2023
--Learn more Python programming
--Get started with C programming for my Electrical/Computer Engineering Double Major
--Learn GO-BGC Python Data collection before the start of Summer Educational Trip MATE ROV August 20-26, 2023
--Build a website as a profile to showscase my achievements and skills
+## Disclaimer
+
+1. This is my humble attempt at creating my own portfolio website.
