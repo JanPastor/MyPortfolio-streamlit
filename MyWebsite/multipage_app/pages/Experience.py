@@ -53,8 +53,8 @@ def show():
         oceanographic instrumentation using FLOAT, Rosetta, and Glider technology
         """)
     with st.container():
-        st.title(' 🚀 Fall 2023-Spring 2024 Bronco Space BLADE (Balloon Launch Assessment Directive for Everyone) Project 🚀')
-        st.subheader("Jan Pastor | 🧑‍💼 Team Deputy |Lead Researcher 🥽 🥼 :microscope:")
+        st.title(' 🚀 Fall 2023-Spring 2024 CPP: Bronco Space BLADE (Balloon Launch Assessment Directive for Everyone) Project 🚀')
+        st.subheader("Jan Pastor | 🧑‍💼 Team Deputy | Lead Researcher 🥽 🥼 :microscope:")
         st.markdown(
         """
         - Scheduled and conducted weekly team meetings to discuss project progress and goals

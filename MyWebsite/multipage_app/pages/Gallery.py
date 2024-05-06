@@ -12,8 +12,6 @@ import os
 #         images[name] = (img,caption)
 #     return images
 
-
-
 def load_specific_images(image_data):
     images = {}
     for name, (url, caption) in image_data.items():
