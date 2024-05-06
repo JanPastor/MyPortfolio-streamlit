@@ -51,5 +51,16 @@ def show():
         collect oceanographic data
         - Boarded Rachel-Carson Research vessel and assisted chief scientist in deployment of 
         oceanographic instrumentation using FLOAT, Rosetta, and Glider technology
+        """)
+    with st.container():
+        st.title(' 🚀 Fall 2023-Spring 2024 Bronco Space BLADE (Balloon Launch Assessment Directive for Everyone) Project 🚀')
+        st.subheader("Jan Pastor | 🧑‍💼 Team Deputy |Lead Researcher 🥽 🥼 :microscope:")
+        st.markdown(
         """
-        )
+        - Scheduled and conducted weekly team meetings to discuss project progress and goals
+        - Assisted Team Lead in managing team members and delegating tasks
+        - Conducted research on Balloon Radio Occultation (RO) technology and its applications 
+        - Managed finances and budget for the project
+        - Drafted electronic schematics for the BRO payload
+        """)
+            
